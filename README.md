@@ -19,21 +19,11 @@
 - **🎙️ Voice-Reactive UI**: Beautiful, floating overlay that responds to your voice in real-time.
 - **⌨️ Universal Dictation**: Inserts text directly into any active application via Accessibility APIs.
 - **🔇 Smart Denoising**: Integrated RNNoise for crystal-clear audio capture even in noisy environments.
-- **📦 Easy Installation**: Simple `brew` formula or manual setup.
+- **📦 Easy Installation**: Simple manual setup.
 
 ## 📥 Installation
 
-### Option 1: Homebrew (Mac)
-
-Install directly from the repository:
-
-```bash
-brew install --HEAD https://raw.githubusercontent.com/sammy4321/OpenFlow/main/brew/openflow.rb
-```
-
-*Note: Once a stable release is tagged (v1.0.0), you can install without `--HEAD`.*
-
-### Option 2: Manual Build
+### Manual Build
 
 Requires Python 3.11+ and `portaudio`.
 
