@@ -28,7 +28,6 @@
 Install directly from the repository:
 
 ```bash
-# This installs the latest version from the main branch
 brew install --HEAD https://raw.githubusercontent.com/sammy4321/OpenFlow/main/brew/openflow.rb
 ```
 
