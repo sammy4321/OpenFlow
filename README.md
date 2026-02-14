@@ -23,12 +23,16 @@
 
 ## 📥 Installation
 
-### Option 1: Homebrew (Recommended)
+### Option 1: Homebrew (Mac)
+
+Install directly from the repository:
 
 ```bash
-brew tap sammy4321/openflow
-brew install openflow
+# This installs the latest version from the main branch
+brew install --HEAD https://raw.githubusercontent.com/sammy4321/OpenFlow/main/brew/openflow.rb
 ```
+
+*Note: Once a stable release is tagged (v1.0.0), you can install without `--HEAD`.*
 
 ### Option 2: Manual Build
 
