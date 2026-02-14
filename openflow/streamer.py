@@ -3,6 +3,8 @@ import threading
 import logging
 import numpy as np
 
+from openflow.config import AUDIO_QUEUE_MAXSIZE
+
 logger = logging.getLogger(__name__)
 
 # Minimum audio duration (in samples) to attempt transcription
@@ -19,10 +21,11 @@ class StreamProcessor:
         self.engine = engine
         self.accessibility = accessibility
         self.completion_callback = completion_callback
-        self.audio_queue = queue.Queue()
+        self.audio_queue = queue.Queue(maxsize=AUDIO_QUEUE_MAXSIZE)
         self.running = False
         self.worker_thread = None
         self.audio_buffer = np.array([], dtype=np.float32)
+        self.chunks = []
 
     def start(self):
         """Starts the background worker thread."""
@@ -37,17 +40,23 @@ class StreamProcessor:
         """Stops the worker thread."""
         self.running = False
         if self.worker_thread:
-            self.worker_thread.join()
+            self.worker_thread.join(timeout=5.0)
+            if self.worker_thread.is_alive():
+                logger.warning("StreamProcessor worker did not exit within timeout; daemon will clean up on process exit.")
         logger.debug("StreamProcessor stopped.")
 
     def reset(self):
         """Clears the current audio buffer."""
         self.audio_buffer = np.array([], dtype=np.float32)
+        self.chunks.clear()
 
     def process_chunk(self, chunk):
         """Adds a new audio chunk to the queue."""
         if self.running:
-            self.audio_queue.put(chunk)
+            try:
+                self.audio_queue.put_nowait(chunk)
+            except queue.Full:
+                logger.warning("Audio queue full — dropping chunk")
 
     def finish_recording(self):
         """Signals that recording has stopped; triggers final transcription."""
@@ -64,7 +73,7 @@ class StreamProcessor:
                     self._handle_final_transcription()
                     continue
 
-                self.audio_buffer = np.concatenate((self.audio_buffer, chunk))
+                self.chunks.append(chunk)
 
             except queue.Empty:
                 continue
@@ -74,6 +83,13 @@ class StreamProcessor:
     def _handle_final_transcription(self):
         """Transcribes the accumulated buffer and inserts text."""
         try:
+            if not self.chunks:
+                if self.completion_callback:
+                    self.completion_callback()
+                return
+            self.audio_buffer = np.concatenate(self.chunks)
+            self.chunks.clear()
+
             if len(self.audio_buffer) < MIN_SAMPLES:
                 logger.debug("Audio too short, skipping transcription.")
                 self.audio_buffer = np.array([], dtype=np.float32)
