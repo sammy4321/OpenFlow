@@ -44,17 +44,6 @@ Requires Python 3.11+ and `portaudio`.
    make run
    ```
 
-## 🛠️ Usage
-
-1. **Launch OpenFlow**. You'll see a small icon in your menu bar.
-2. **Hold `Right Command` (cmd_r)** to start dictating.
-   - An overlay will appear at the bottom of your screen.
-   - Speak naturally.
-3. **Release the key** to finish.
-   - The text will be instantly transcribed and typed into your active window.
-
-> **Note:** On first launch, you must grant **Accessibility Permissions** when prompted. This allows OpenFlow to type text on your behalf.
-
 ## ⚙️ Configuration
 
 ### Changing Models
