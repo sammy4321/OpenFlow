@@ -1,0 +1,18 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "OpenFlow"
+version = "1.0.0"
+authors = [
+  { name="OpenFlow Contributors", email="maintainers@openflow.app" },
+]
+description = "A macOS-native, GPU-accelerated, streaming speech-to-text menu bar app."
+readme = "README.md"
+requires-python = ">=3.11"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: MacOS",
+]
