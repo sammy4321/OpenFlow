@@ -90,8 +90,3 @@ We welcome contributions! Please follow these steps:
 ## 📄 License
 
 Distributed under the MIT License. See `LICENSE` for more information.
-
----
-<p align="center">
-  Built with ❤️ by <a href="https://github.com/sammy4321">Sammy</a> & Contributors.
-</p>
