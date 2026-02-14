@@ -62,9 +62,9 @@ By default, OpenFlow uses the `tiny` model for maximum speed (`<300ms`). You can
 
 ```bash
 # Run with a specific model size
-openflow --model base
-openflow --model small
-openflow --model medium
+make run MODEL=base
+make run MODEL=small
+make run MODEL=medium
 ```
 
 Supported models: `tiny`, `base`, `small`, `medium`, `large-v3`.
