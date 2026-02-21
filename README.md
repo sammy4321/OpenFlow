@@ -2,9 +2,7 @@
   <img src="resources/icon.png" width="128" style="border-radius:24px"/>
 </p>
 
-<p align="center">
-  <strong>OpenFlow</strong>
-</p>
+<h1 align="center">Orbit</h1>
 
 <p align="center">
   A macOS-native, GPU-accelerated, streaming speech-to-text menu bar app.
