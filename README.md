@@ -1,11 +1,13 @@
-# OpenFlow
-
 <p align="center">
   <img src="resources/icon.png" width="128" style="border-radius:24px"/>
 </p>
 
 <p align="center">
-  <b>A macOS-native, GPU-accelerated, streaming speech-to-text menu bar app.</b>
+  <strong>OpenFlow</strong>
+</p>
+
+<p align="center">
+  A macOS-native, GPU-accelerated, streaming speech-to-text menu bar app.
 </p>
 
 <p align="center">
