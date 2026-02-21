@@ -1,12 +1,26 @@
 # OpenFlow
 
-[![License: Apache-2.0](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
-[![Platform: macOS](https://img.shields.io/badge/Platform-macOS-lightgrey.svg)](https://www.apple.com/mac/)
-[![Python 3.11+](https://img.shields.io/badge/python-3.11+-blue.svg)](https://www.python.org/downloads/)
+<p align="center">
+  <img src="resources/icon.png" width="128" style="border-radius:24px"/>
+</p>
 
-**A macOS-native, GPU-accelerated, streaming speech-to-text menu bar app.**
+<p align="center">
+  <b>A macOS-native, GPU-accelerated, streaming speech-to-text menu bar app.</b>
+</p>
 
-[Features](#features) • [Installation](#installation) • [Usage](#usage) • [Configuration](#configuration) • [Tech Stack](#tech-stack)
+<p align="center">
+  <a href="https://opensource.org/licenses/Apache-2.0"><img src="https://img.shields.io/badge/License-Apache%202.0-blue.svg" alt="License"/></a>
+  <a href="https://www.apple.com/mac/"><img src="https://img.shields.io/badge/Platform-macOS-lightgrey.svg" alt="Platform"/></a>
+  <a href="https://www.python.org/downloads/"><img src="https://img.shields.io/badge/python-3.11+-blue.svg" alt="Python"/></a>
+</p>
+
+<p align="center">
+  <a href="#features">Features</a> •
+  <a href="#installation">Installation</a> •
+  <a href="#usage">Usage</a> •
+  <a href="#configuration">Configuration</a> •
+  <a href="#tech-stack">Tech Stack</a>
+</p>
 
 ---
 
