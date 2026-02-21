@@ -22,6 +22,8 @@ class OpenFlowApp:
     def __init__(self, model="tiny"):
         logger.info("Initializing OpenFlow UI and components...")
 
+        self._active = False
+
         # UI Components
         self.statusbar = StatusBar(self)
         self.overlay = Overlay()
@@ -63,6 +65,9 @@ class OpenFlowApp:
 
     def start_listening(self):
         """Starts audio capture and updates UI."""
+        if self._active:
+            return
+        self._active = True
         logger.debug("Start listening triggered.")
         self.streamer.reset()
         AppHelper.callAfter(self._update_ui_start, None)
@@ -70,6 +75,8 @@ class OpenFlowApp:
 
     def stop_listening(self):
         """Stops audio capture and finalizes processing."""
+        if not self._active:
+            return
         logger.debug("Stop listening triggered.")
         self.audio.stop()
         self.streamer.finish_recording()
@@ -83,6 +90,7 @@ class OpenFlowApp:
 
     def _on_transcription_complete(self):
         """Callback when text insertion is complete."""
+        self._active = False
         AppHelper.callAfter(self._update_ui_complete, None)
 
     def _update_ui_complete(self, _):
@@ -90,6 +98,6 @@ class OpenFlowApp:
 
     def run(self):
         """Starts the main event loop."""
-        logger.info("OpenFlow is ready. Press Fn to dictate.")
-        rumps.notification("OpenFlow", "Ready", "Press Fn to dictate")
+        logger.info("OpenFlow is ready. Press Right Command to dictate.")
+        rumps.notification("OpenFlow", "Ready", "Press Right Command to dictate")
         self.statusbar.run()

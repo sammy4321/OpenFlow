@@ -1,4 +1,5 @@
 import subprocess
+import time
 import logging
 
 logger = logging.getLogger(__name__)
@@ -14,15 +15,16 @@ def _paste_via_shortcut():
             CGEventCreateKeyboardEvent,
             CGEventPost,
             CGEventSetFlags,
-            kCGSessionEventTap,
+            kCGHIDEventTap,
         )
-        source = None  # system default
+        source = None
         down = CGEventCreateKeyboardEvent(source, KVK_ANSI_V, True)
         CGEventSetFlags(down, KCG_EVENT_FLAG_MASK_COMMAND)
         up = CGEventCreateKeyboardEvent(source, KVK_ANSI_V, False)
-        CGEventSetFlags(up, KCG_EVENT_FLAG_MASK_COMMAND)
-        CGEventPost(kCGSessionEventTap, down)
-        CGEventPost(kCGSessionEventTap, up)
+
+        CGEventPost(kCGHIDEventTap, down)
+        time.sleep(0.05)
+        CGEventPost(kCGHIDEventTap, up)
         return True
     except Exception as e:
         logger.debug(f"Failed to simulate paste shortcut: {e}")
