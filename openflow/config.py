@@ -17,6 +17,4 @@ DEFAULT_MODEL = "tiny"
 MLX_MODEL_REPO = "mlx-community/whisper-tiny-mlx"
 
 # Hotkey settings
-# This represents the key used in hotkey.py. 
-# While currently relying on specific key codes, this config acts as a central reference.
-HOTKEY = "<122>"  # Examples: F1, or specialized Fn usages depending on system config.
+HOTKEY = "cmd_r"  # Right Command key
