@@ -16,5 +16,7 @@ FRAME_SIZE = int(SAMPLE_RATE * FRAME_DURATION_MS / 1000)
 DEFAULT_MODEL = "tiny"
 MLX_MODEL_REPO = "mlx-community/whisper-tiny-mlx"
 
+AUDIO_QUEUE_MAXSIZE = 20
+
 # Hotkey settings
 HOTKEY = "cmd_r"  # Right Command key
